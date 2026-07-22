@@ -1,0 +1,17 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="lensGradientAI" x1="4" y1="4" x2="38" y2="38" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#c084fc"/>
+    </linearGradient>
+  </defs>
+
+  <path d="M32 32L44 44" stroke="#455A64" stroke-width="5" stroke-linecap="round"/>
+
+  <circle cx="21" cy="21" r="17" fill="url(#lensGradientAI)"/>
+
+  <path d="M12 10C10 12 9 15 9 15" stroke="white" stroke-width="2" stroke-linecap="round" opacity="0.3"/>
+
+  <!-- AI sparkle mark -->
+  <path d="M21 12.5L22.4 17.6L27.5 19L22.4 20.4L21 25.5L19.6 20.4L14.5 19L19.6 17.6L21 12.5Z" fill="white"/>
+</svg>

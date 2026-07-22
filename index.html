@@ -4,8 +4,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Download Browser Extension</title>
-  <meta name="description" content="Download the extension for Chrome, Firefox, Brave, Vivaldi, Edge, and Opera." />
+  <title>Download Browser Extensions</title>
+  <meta name="description"
+    content="Download our browser extensions for Chrome, Firefox, Brave, Vivaldi, Edge, and Opera." />
   <style>
     :root {
       --bg: #0b1220;
@@ -46,6 +47,52 @@
       width: min(1100px, calc(100% - 32px));
       margin: 0 auto;
       padding: 32px 0 48px;
+    }
+
+    /* Extension switcher */
+    .switcher {
+      display: flex;
+      gap: 8px;
+      padding: 6px;
+      margin-bottom: 24px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--panel-border);
+      border-radius: 999px;
+      width: fit-content;
+      max-width: 100%;
+      overflow-x: auto;
+    }
+
+    .switcher button {
+      appearance: none;
+      border: none;
+      background: transparent;
+      color: var(--muted);
+      font-family: inherit;
+      font-size: 0.92rem;
+      font-weight: 600;
+      padding: 10px 18px;
+      border-radius: 999px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+
+    .switcher button:hover {
+      color: var(--text);
+    }
+
+    .switcher button.active {
+      background: linear-gradient(135deg, rgba(110, 168, 255, 0.9), rgba(139, 92, 246, 0.85));
+      color: #0b1220;
+    }
+
+    .app-section {
+      display: none;
+    }
+
+    .app-section.active {
+      display: block;
     }
 
     .hero {
@@ -144,6 +191,10 @@
       gap: 16px;
     }
 
+    .grid.single {
+      grid-template-columns: minmax(0, 360px);
+    }
+
     .card {
       display: flex;
       flex-direction: column;
@@ -227,26 +278,18 @@
       border-color: rgba(255, 255, 255, 0.16);
     }
 
-    .docs {
-      display: grid;
-      gap: 12px;
-    }
-
-    .docs a {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-      padding: 14px 16px;
-      border-radius: 16px;
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      color: var(--text);
-    }
-
-    .docs a span {
-      color: var(--muted);
-      font-size: 0.95rem;
+    .badge-note {
+      display: inline-block;
+      margin-top: 2px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--accent-2);
+      background: rgba(139, 92, 246, 0.14);
+      border: 1px solid rgba(139, 92, 246, 0.3);
+      padding: 3px 9px;
+      border-radius: 999px;
     }
 
     .footer {
@@ -274,165 +317,289 @@
 
 <body>
   <main class="container">
-    <section class="hero">
-      <div>
-        <div class="brand">
-          <img src="icons/icon-main.svg" alt="Extension icon" />
+    <nav class="switcher" role="tablist" aria-label="Choose an extension">
+      <button type="button" class="active" data-target="productsearch" role="tab" aria-selected="true">Product
+        Search</button>
+      <button type="button" data-target="ai-search" role="tab" aria-selected="false">Product Data AI Search</button>
+    </nav>
+
+    <!-- ===================== ProductSearch ===================== -->
+    <section class="app-section active" id="productsearch">
+      <section class="hero">
+        <div>
+          <div class="brand">
+            <img src="icons/icon-main.svg" alt="ProductSearch icon" />
+            <div>
+              <div
+                style="color: var(--muted); font-size: 0.92rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;">
+                Product Search Extension</div>
+              <div style="font-size: 1.05rem; color: var(--text); font-weight: 700;">Download & installation page</div>
+            </div>
+          </div>
+          <p class="lead">Choose your browser below to download the extension package and follow the local-install
+            guide.</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-header">
           <div>
-            <div style="color: var(--muted); font-size: 0.92rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;">
-              Product Search Extension</div>
-            <div style="font-size: 1.05rem; color: var(--text); font-weight: 700;">Download & installation page</div>
+            <h2>Downloads</h2>
+            <p>Pick the package that matches your browser.</p>
           </div>
         </div>
-        <p class="lead">Choose your browser below to download the extension package and follow the local-install guide.</p>
-      </div>
+
+        <div class="grid">
+          <article class="card">
+            <div class="card-top">
+              <div class="badge"><img src="icons/firefox.png" alt="Firefox icon" /></div>
+              <div>
+                <h3>Firefox</h3>
+                <p>Firefox users</p>
+              </div>
+            </div>
+            <p>Download the signed Firefox build and install it directly in Firefox.</p>
+            <div class="actions">
+              <a class="btn primary"
+                href="https://drive.google.com/file/d/1JQC25ns49pfasot21vFTTI_Cq4fY6nGC/view?usp=drive_link"
+                target="_blank" rel="noopener noreferrer">Download Firefox .xpi</a>
+              <a class="btn secondary" href="#productsearch-install">Installation guide</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-top">
+              <div class="badge"><img src="icons/chrome.webp" alt="Chrome icon" /></div>
+              <div>
+                <h3>Chrome / Brave / Vivaldi / Edge</h3>
+                <p>Chromium browsers</p>
+              </div>
+            </div>
+            <p>Use the Chromium package for Chrome-based browsers.</p>
+            <div class="actions">
+              <a class="btn primary"
+                href="https://drive.google.com/file/d/1K3LZMq5NzLOjgj5EqhkRRtFfoJ5Af7Hj/view?usp=drive_link"
+                target="_blank" rel="noopener noreferrer">Download Chromium Build</a>
+              <a class="btn secondary" href="#productsearch-install">Installation guide</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-top">
+              <div class="badge"><img src="icons/opera.svg" alt="Opera icon" /></div>
+              <div>
+                <h3>Opera</h3>
+                <p>Opera users</p>
+              </div>
+            </div>
+            <p>Download the Opera package and load it locally in the browser.</p>
+            <div class="actions">
+              <a class="btn primary"
+                href="https://drive.google.com/file/d/1s7JQOa-GRfxxb6ymTtnoXQwTYRZYcTyL/view?usp=drive_link"
+                target="_blank" rel="noopener noreferrer">Download Opera Build</a>
+              <a class="btn secondary" href="#productsearch-install">Installation guide</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="productsearch-install">
+        <div class="section-header">
+          <div>
+            <h2>How to install the extension locally</h2>
+            <p>Follow the steps for your browser.</p>
+          </div>
+        </div>
+
+        <div class="grid">
+          <article class="card">
+            <div class="card-top">
+              <div class="badge"><img src="icons/firefox.png" alt="Firefox icon" /></div>
+              <div>
+                <h3>Firefox</h3>
+                <p>Signed XPI install</p>
+              </div>
+            </div>
+            <p>
+              1. Download the signed <strong>.xpi</strong> file.<br>
+              2. Open Firefox and drag the <strong>.xpi</strong> file into the browser window.<br>
+              3. Click <strong>Add</strong> when Firefox asks for confirmation.<br>
+              4. The extension will be installed automatically.
+            </p>
+            <div class="actions">
+              <a class="btn secondary"
+                href="https://support.mozilla.org/en-US/kb/find-and-install-add-ons-add-features-to-firefox"
+                target="_blank" rel="noopener noreferrer">Official Firefox Docs</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-top">
+              <div class="badge"><img src="icons/chrome.webp" alt="Chrome icon" /></div>
+              <div>
+                <h3>Chrome / Brave / Edge / Vivaldi</h3>
+                <p>Developer mode install</p>
+              </div>
+            </div>
+            <p>
+              1. Download and extract the extension files.<br>
+              2. Open <strong>chrome://extensions</strong>.<br>
+              3. Enable <strong>Developer mode</strong> in the top-right corner.<br>
+              4. Click <strong>Load unpacked</strong>.<br>
+              5. Select the extracted extension folder.
+            </p>
+            <div class="actions">
+              <a class="btn secondary"
+                href="https://developer.chrome.com/docs/extensions/get-started/tutorial/hello-world#load-unpacked"
+                target="_blank" rel="noopener noreferrer">Official Chromium Docs</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-top">
+              <div class="badge"><img src="icons/opera.svg" alt="Opera icon" /></div>
+              <div>
+                <h3>Opera</h3>
+                <p>Opera extension install</p>
+              </div>
+            </div>
+            <p>
+              1. Download and extract the extension files.<br>
+              2. Open <strong>opera://extensions</strong>.<br>
+              3. Enable <strong>Developer Mode</strong>.<br>
+              4. Click <strong>Load unpacked</strong>.<br>
+              5. Select the extracted extension folder.
+            </p>
+            <div class="actions">
+              <a class="btn secondary" href="https://help.opera.com/en/extensions/install-chrome-extensions/"
+                target="_blank" rel="noopener noreferrer">Opera Extension Docs</a>
+            </div>
+          </article>
+        </div>
+      </section>
     </section>
 
-    <section class="section">
-      <div class="section-header">
+    <!-- ===================== Product Data AI Search ===================== -->
+    <section class="app-section" id="ai-search">
+      <section class="hero">
         <div>
-          <h2>Downloads</h2>
-          <p>Pick the package that matches your browser.</p>
+          <div class="brand">
+            <img src="icons/google-ai.png" alt="Product Data AI Search icon" />
+            <div>
+              <div
+                style="color: var(--muted); font-size: 0.92rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;">
+                Product Data AI Search</div>
+              <div style="font-size: 1.05rem; color: var(--text); font-weight: 700;">Download & installation page</div>
+            </div>
+          </div>
+          <p class="lead">Download the extension package below and follow the local-install guide. Currently available
+            for Chromium-based browsers only.</p>
         </div>
-      </div>
+      </section>
 
-      <div class="grid">
-        <article class="card">
-          <div class="card-top">
-            <div class="badge"><img src="icons/firefox.png" alt="Firefox icon" /></div>
-            <div>
-              <h3>Firefox</h3>
-              <p>Firefox users</p>
-            </div>
+      <section class="section">
+        <div class="section-header">
+          <div>
+            <h2>Downloads</h2>
+            <p>Chromium browsers are supported for now — more browsers may follow.</p>
           </div>
-          <p>Download the signed Firefox build and install it directly in Firefox.</p>
-          <div class="actions">
-            <a class="btn primary"
-              href="https://drive.google.com/file/d/1JQC25ns49pfasot21vFTTI_Cq4fY6nGC/view?usp=drive_link"
-              target="_blank" rel="noopener noreferrer">Download Firefox .xpi</a>
-            <a class="btn secondary" href="#local-install">Installation guide</a>
-          </div>
-        </article>
+        </div>
 
-        <article class="card">
-          <div class="card-top">
-            <div class="badge">
-              <div class="badge"><img src="icons/chrome.webp" alt="Firefox icon" /></div>
+        <div class="grid single">
+          <article class="card">
+            <div class="card-top">
+              <div class="badge"><img src="icons/chrome.webp" alt="Chrome icon" /></div>
+              <div>
+                <h3>Chrome / Brave / Vivaldi / Edge</h3>
+                <p>Chromium browsers</p>
+              </div>
             </div>
-            <div>
-              <h3>Chrome / Brave / Vivaldi / Edge</h3>
-              <p>Chromium browsers</p>
+            <span class="badge-note">Chromium only</span>
+            <p>Use the Chromium package for Chrome-based browsers.</p>
+            <div class="actions">
+              <!-- TODO: replace with the GitHub/Vercel release URL once hosted -->
+              <a class="btn primary" href="#" target="_blank" rel="noopener noreferrer">Download Chromium Build</a>
+              <a class="btn secondary" href="#ai-search-install">Installation guide</a>
             </div>
-          </div>
-          <p>Use the Chromium package for Chrome-based browsers.</p>
-          <div class="actions">
-            <a class="btn primary"
-              href="https://drive.google.com/file/d/1K3LZMq5NzLOjgj5EqhkRRtFfoJ5Af7Hj/view?usp=drive_link"
-              target="_blank" rel="noopener noreferrer">Download Chromium Build</a>
-            <a class="btn secondary" href="#local-install">Installation guide</a>
-          </div>
-        </article>
+          </article>
+        </div>
+      </section>
 
-        <article class="card">
-          <div class="card-top">
-            <div class="badge">
-              <div class="badge"><img src="icons/opera.svg" alt="Firefox icon" /></div>
-            </div>
-            <div>
-              <h3>Opera</h3>
-              <p>Opera users</p>
-            </div>
+      <section class="section" id="ai-search-install">
+        <div class="section-header">
+          <div>
+            <h2>How to install the extension locally</h2>
+            <p>Steps for Chromium-based browsers.</p>
           </div>
-          <p>Download the Opera package and load it locally in the browser.</p>
-          <div class="actions">
-            <a class="btn primary"
-              href="https://drive.google.com/file/d/1s7JQOa-GRfxxb6ymTtnoXQwTYRZYcTyL/view?usp=drive_link"
-              target="_blank" rel="noopener noreferrer">Download Opera Build</a>
-            <a class="btn secondary" href="#local-install">Installation guide</a>
-          </div>
-        </article>
-      </div>
+        </div>
+
+        <div class="grid single">
+          <article class="card">
+            <div class="card-top">
+              <div class="badge"><img src="icons/chrome.webp" alt="Chrome icon" /></div>
+              <div>
+                <h3>Chrome / Brave / Edge / Vivaldi</h3>
+                <p>Developer mode install</p>
+              </div>
+            </div>
+            <p>
+              1. Download and extract the extension files.<br>
+              2. Open <strong>chrome://extensions</strong>.<br>
+              3. Enable <strong>Developer mode</strong> in the top-right corner.<br>
+              4. Click <strong>Load unpacked</strong>.<br>
+              5. Select the extracted extension folder.
+            </p>
+            <div class="actions">
+              <a class="btn secondary"
+                href="https://developer.chrome.com/docs/extensions/get-started/tutorial/hello-world#load-unpacked"
+                target="_blank" rel="noopener noreferrer">Official Chromium Docs</a>
+            </div>
+          </article>
+        </div>
+      </section>
     </section>
 
-    <section class="section" id="local-install">
-      <div class="section-header">
-        <div>
-          <h2>How to install the extension locally</h2>
-          <p>Follow the steps for your browser.</p>
-        </div>
-      </div>
-
-      <div class="grid">
-        <article class="card">
-          <div class="card-top">
-            <div class="badge"><img src="icons/firefox.png" alt="Firefox icon" /></div>
-            <div>
-              <h3>Firefox</h3>
-              <p>Signed XPI install</p>
-            </div>
-          </div>
-          <p>
-            1. Download the signed <strong>.xpi</strong> file.<br>
-            2. Open Firefox and drag the <strong>.xpi</strong> file into the browser window.<br>
-            3. Click <strong>Add</strong> when Firefox asks for confirmation.<br>
-            4. The extension will be installed automatically.
-          </p>
-          <div class="actions">
-            <a class="btn secondary"
-              href="https://support.mozilla.org/en-US/kb/find-and-install-add-ons-add-features-to-firefox"
-              target="_blank" rel="noopener noreferrer">Official Firefox Docs</a>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="card-top">
-            <div class="badge">
-              <div class="badge"><img src="icons/chrome.webp" alt="Firefox icon" /></div>
-            </div>
-            <div>
-              <h3>Chrome / Brave / Edge / Vivaldi</h3>
-              <p>Developer mode install</p>
-            </div>
-          </div>
-          <p>
-            1. Download and extract the extension files.<br>
-            2. Open <strong>chrome://extensions</strong>.<br>
-            3. Enable <strong>Developer mode</strong> in the top-right corner.<br>
-            4. Click <strong>Load unpacked</strong>.<br>
-            5. Select the extracted extension folder.
-          </p>
-          <div class="actions">
-            <a class="btn secondary"
-              href="https://developer.chrome.com/docs/extensions/get-started/tutorial/hello-world#load-unpacked"
-              target="_blank" rel="noopener noreferrer">Official Chromium Docs</a>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="card-top">
-            <div class="badge">
-              <div class="badge"><img src="icons/opera.svg" alt="Firefox icon" /></div>
-            </div>
-            <div>
-              <h3>Opera</h3>
-              <p>Opera extension install</p>
-            </div>
-          </div>
-          <p>
-            1. Download and extract the extension files.<br>
-            2. Open <strong>opera://extensions</strong>.<br>
-            3. Enable <strong>Developer Mode</strong>.<br>
-            4. Click <strong>Load unpacked</strong>.<br>
-            5. Select the extracted extension folder.
-          </p>
-          <div class="actions">
-            <a class="btn secondary" href="https://help.opera.com/en/extensions/install-chrome-extensions/"
-              target="_blank" rel="noopener noreferrer">Opera Extension Docs</a>
-          </div>
-        </article>
-      </div>
-    </section>
+    <p class="footer">Use the switcher above to jump between extensions. Link directly with <code>#productsearch</code>
+      or <code>#ai-search</code>.</p>
   </main>
+
+  <script>
+    (function () {
+      var buttons = document.querySelectorAll('.switcher button');
+      var sections = document.querySelectorAll('.app-section');
+
+      function activate(target, updateHash) {
+        buttons.forEach(function (b) {
+          var isActive = b.getAttribute('data-target') === target;
+          b.classList.toggle('active', isActive);
+          b.setAttribute('aria-selected', isActive ? 'true' : 'false');
+        });
+        sections.forEach(function (s) {
+          s.classList.toggle('active', s.id === target);
+        });
+        if (updateHash && history.pushState) {
+          history.pushState(null, '', '#' + target);
+        }
+      }
+
+      buttons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          activate(btn.getAttribute('data-target'), true);
+        });
+      });
+
+      function initFromHash() {
+        var hash = (location.hash || '').replace('#', '');
+        var valid = ['productsearch', 'ai-search'];
+        if (valid.indexOf(hash) !== -1) {
+          activate(hash, false);
+        }
+      }
+
+      window.addEventListener('hashchange', initFromHash);
+      initFromHash();
+    })();
+  </script>
 </body>
 
 </html>

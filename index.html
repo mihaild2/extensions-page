@@ -362,7 +362,7 @@
             <div class="actions">
               <a class="btn primary"
                 href="https://drive.google.com/file/d/1JQC25ns49pfasot21vFTTI_Cq4fY6nGC/view?usp=drive_link"
-                target="_blank" rel="noopener noreferrer">Download Firefox .xpi</a>
+                target="_blank" rel="noopener noreferrer">Download Firefox Build</a>
               <a class="btn secondary" href="#productsearch-install">Installation guide</a>
             </div>
           </article>
@@ -492,8 +492,8 @@
               <div style="font-size: 1.05rem; color: var(--text); font-weight: 700;">Download & installation page</div>
             </div>
           </div>
-          <p class="lead">Download the extension package below and follow the local-install guide. Currently available
-            for Chromium-based browsers only.</p>
+          <p class="lead">Choose your browser below to download the extension package and follow the local-install
+            guide.</p>
         </div>
       </section>
 
@@ -501,11 +501,28 @@
         <div class="section-header">
           <div>
             <h2>Downloads</h2>
-            <p>Chromium browsers are supported for now — more browsers may follow.</p>
+            <p>Pick the package that matches your browser.</p>
           </div>
         </div>
 
-        <div class="grid single">
+        <div class="grid">
+          <article class="card">
+            <div class="card-top">
+              <div class="badge"><img src="icons/firefox.png" alt="Firefox icon" /></div>
+              <div>
+                <h3>Firefox</h3>
+                <p>Firefox users</p>
+              </div>
+            </div>
+            <p>Download the signed Firefox build and install it directly in Firefox.</p>
+            <div class="actions">
+              <a class="btn primary"
+                href="https://drive.google.com/file/d/1S4ftDg6QQvF3XntPX_2WuP8wq-Hc8Bfu/view?usp=drive_link"
+                target="_blank" rel="noopener noreferrer">Download Firefox Build</a>
+              <a class="btn secondary" href="#ai-search-install">Installation guide</a>
+            </div>
+          </article>
+
           <article class="card">
             <div class="card-top">
               <div class="badge"><img src="icons/chrome.webp" alt="Chrome icon" /></div>
@@ -514,13 +531,28 @@
                 <p>Chromium browsers</p>
               </div>
             </div>
-            <span class="badge-note">Chromium only</span>
             <p>Use the Chromium package for Chrome-based browsers.</p>
             <div class="actions">
-              <!-- TODO: replace with the GitHub/Vercel release URL once hosted -->
               <a class="btn primary"
-                href="https://drive.google.com/file/d/1CcnBW98dhZsTBwkzjFq-o_qOVSprwM_w/view?usp=drive_link"
+                href="https://drive.google.com/file/d/15gT5lHKY-0b88VcD3bYxqHop3TzFr36i/view?usp=drive_link"
                 target="_blank" rel="noopener noreferrer">Download Chromium Build</a>
+              <a class="btn secondary" href="#ai-search-install">Installation guide</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-top">
+              <div class="badge"><img src="icons/opera.svg" alt="Opera icon" /></div>
+              <div>
+                <h3>Opera</h3>
+                <p>Opera users</p>
+              </div>
+            </div>
+            <p>Download the Opera package and load it locally in the browser.</p>
+            <div class="actions">
+              <a class="btn primary"
+                href="https://drive.google.com/file/d/15gT5lHKY-0b88VcD3bYxqHop3TzFr36i/view?usp=drive_link"
+                target="_blank" rel="noopener noreferrer">Download Opera Build</a>
               <a class="btn secondary" href="#ai-search-install">Installation guide</a>
             </div>
           </article>
@@ -531,11 +563,32 @@
         <div class="section-header">
           <div>
             <h2>How to install the extension locally</h2>
-            <p>Steps for Chromium-based browsers.</p>
+            <p>Follow the steps for your browser.</p>
           </div>
         </div>
 
-        <div class="grid single">
+        <div class="grid">
+          <article class="card">
+            <div class="card-top">
+              <div class="badge"><img src="icons/firefox.png" alt="Firefox icon" /></div>
+              <div>
+                <h3>Firefox</h3>
+                <p>Signed XPI install</p>
+              </div>
+            </div>
+            <p>
+              1. Download the signed <strong>.xpi</strong> file.<br>
+              2. Open Firefox and drag the <strong>.xpi</strong> file into the browser window.<br>
+              3. Click <strong>Add</strong> when Firefox asks for confirmation.<br>
+              4. The extension will be installed automatically.
+            </p>
+            <div class="actions">
+              <a class="btn secondary"
+                href="https://support.mozilla.org/en-US/kb/find-and-install-add-ons-add-features-to-firefox"
+                target="_blank" rel="noopener noreferrer">Official Firefox Docs</a>
+            </div>
+          </article>
+
           <article class="card">
             <div class="card-top">
               <div class="badge"><img src="icons/chrome.webp" alt="Chrome icon" /></div>
@@ -555,6 +608,27 @@
               <a class="btn secondary"
                 href="https://developer.chrome.com/docs/extensions/get-started/tutorial/hello-world#load-unpacked"
                 target="_blank" rel="noopener noreferrer">Official Chromium Docs</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-top">
+              <div class="badge"><img src="icons/opera.svg" alt="Opera icon" /></div>
+              <div>
+                <h3>Opera</h3>
+                <p>Opera extension install</p>
+              </div>
+            </div>
+            <p>
+              1. Download and extract the extension files.<br>
+              2. Open <strong>opera://extensions</strong>.<br>
+              3. Enable <strong>Developer Mode</strong>.<br>
+              4. Click <strong>Load unpacked</strong>.<br>
+              5. Select the extracted extension folder.
+            </p>
+            <div class="actions">
+              <a class="btn secondary" href="https://help.opera.com/en/extensions/install-chrome-extensions/"
+                target="_blank" rel="noopener noreferrer">Opera Extension Docs</a>
             </div>
           </article>
         </div>
